@@ -1,0 +1,43 @@
+*Make sure you have install Python 3+, django and django rest framework
+*Every command run from command prompt
+Create Project(Activate)
+------------------------
+django-admin startproject restapi
+python manage.py startapp adjustdataapp
+
+Create Super User
+-------------------------
+python manage.py createsuperuser
+username: datasetuser
+password: ********
+
+Run the server
+-------------------------
+python manage.py runserver
+
+Database Connect:
+-----------------
+I have used postgressql.
+In your setting.py file, see databases section and cinfig your database. for me i have set up below:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'performancematrics',
+        'USER': 'postgres',
+        'PASSWORD': '********',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+Then migrate your database , writing the command:
+python manage.py makemigrations
+python manage.py migrate
+
+app database migrations
+------------------------
+python manage.py makemigrations (your app name)
+python manage.py migrate
+
+Initialize postgressql db(run the below command)
+--------------------------
+python manage.py data_upload_to_db
